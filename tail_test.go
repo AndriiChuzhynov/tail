@@ -742,6 +742,8 @@ func TestSkipFirstReOpen(t *testing.T) {
 	tailTest.RemoveFile("test.txt")
 	<-time.After(300 * time.Millisecond)
 	tailTest.CreateFile("test.txt", "one\ntwo\nthree\nfour\nfive\nsix\nseven\neight\nnine\n")
+	stat, _ := os.Stat(tailTest.path + "/" + "test.txt")
+    t.Logf("%d", stat.Size())
 	<-time.After(300 * time.Millisecond)
 	expected = []string{"five", "six", "seven", "eight", "nine"}
     t.Logf("read second time")
