@@ -738,6 +738,7 @@ func TestSkipFirstReOpen(t *testing.T) {
 	tailTest.ReadLines(tail, expected)
 
 	tailTest.RemoveFile("test.txt")
+	<-time.After(300 * time.Millisecond)
 	tailTest.CreateFile("test.txt", "one\ntwo\nthree\nfour\nfive\nsix\nseven\neight\nnine\n")
 	<-time.After(300 * time.Millisecond)
 	expected = []string{"five", "six", "seven", "eight", "nine"}
