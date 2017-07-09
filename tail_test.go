@@ -736,6 +736,7 @@ func TestSkipFirstReOpen(t *testing.T) {
 	expected := []string{"five", "six", "", "eight"}
 
 	<-time.After(300 * time.Millisecond)
+    t.Logf("read first time")
 	tailTest.ReadLines(tail, expected)
 
 	tailTest.RemoveFile("test.txt")
@@ -743,5 +744,6 @@ func TestSkipFirstReOpen(t *testing.T) {
 	tailTest.CreateFile("test.txt", "one\ntwo\nthree\nfour\nfive\nsix\nseven\neight\nnine\n")
 	<-time.After(300 * time.Millisecond)
 	expected = []string{"five", "six", "seven", "eight", "nine"}
+    t.Logf("read second time")
 	tailTest.VerifyTailOutput(tail, expected, false)
 }
