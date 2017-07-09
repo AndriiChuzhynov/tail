@@ -727,6 +727,7 @@ func TestSkipFirstReOpen(t *testing.T) {
 	config := Config{
 		ReOpen:       true,
 		Follow:       true,
+		MustExist:    true,
 		Poll:         true,
 		SeekOnReOpen: true,
 		FromLine:     5}
