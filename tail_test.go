@@ -745,5 +745,5 @@ func TestSkipFirstReOpen(t *testing.T) {
 	<-time.After(300 * time.Millisecond)
 	expected = []string{"five", "six", "seven", "eight", "nine"}
     t.Logf("read second time")
-	tailTest.VerifyTailOutput(tail, expected, false)
+	go tailTest.VerifyTailOutput(tail, expected, false)
 }
