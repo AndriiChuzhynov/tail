@@ -728,7 +728,7 @@ func TestSkipFirstReOpen(t *testing.T) {
 		ReOpen:       true,
 		Follow:       true,
 		MustExist:    true,
-		Poll:         true,
+//		Poll:         true,
 		SeekOnReOpen: true,
 		FromLine:     5}
 
