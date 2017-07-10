@@ -748,4 +748,5 @@ func TestSkipFirstReOpen(t *testing.T) {
 	expected = []string{"five", "six", "seven", "eight", "nine"}
     t.Logf("read second time")
 	go tailTest.VerifyTailOutput(tail, expected, false)
+	tailTest.Cleanup(tail, true)
 }
